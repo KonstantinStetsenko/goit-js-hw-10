@@ -1,6 +1,7 @@
 import iziToast from 'izitoast';
 // Додатковий імпорт стилів
 import 'izitoast/dist/css/iziToast.min.css';
+const inputValue = 0;
 
 const btn = document.querySelector('button[data-submit]');
 const inputElement = document.querySelector(
@@ -15,7 +16,7 @@ const rejected = document.querySelector(
   `input[type="radio"][name="state"][value="rejected"]`
 );
 
-btn.addEventListener('click', () => {
+btn.addEventListener('submit', () => {
   const delay = parseInt(inputValue); // Отримуємо значення затримки з поля вводу
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -62,8 +63,6 @@ btn.addEventListener('click', () => {
       console.log(`❌ Rejected promise in ${inputValue}ms`);
     });
 });
-
-let inputValue = 0;
 
 inputElement.addEventListener('change', time => {
   inputValue = time.target.value;
