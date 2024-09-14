@@ -30,8 +30,13 @@ function updatedTimer() {
       message: 'Time is up!',
       position: 'topRight',
     });
-
+    btn.disabled = false;
     return;
+  }
+  if (time) {
+    btn.disabled = true;
+  } else {
+    btn.disabled = false;
   }
 
   const { days, hours, minutes, seconds } = convertMs(time);
@@ -73,6 +78,15 @@ const options = {
       iziToast.error({
         message: 'Please choose a date in the future',
         position: 'topRight',
+        backgroundColor: '#EF4040',
+        messageSize: 16,
+        messageColor: '#FFFF',
+        iconColor: '',
+        titleColor: '#FAFAFB',
+        icon: 'fa fa-user',
+        iconUrl: '../img/bi_x-octagon (1).svg',
+        titleSize: 16,
+        messageLineHeight: 24,
       });
       return;
     }
@@ -82,6 +96,15 @@ const options = {
     iziToast.success({
       message: 'Date has been successfully selected!',
       position: 'topRight',
+      backgroundColor: '#59A10D',
+      messageSize: 16,
+      messageColor: '#FFF',
+      iconColor: '',
+      titleColor: '#FAFAFB',
+      icon: 'checkmark-circle-outline',
+      iconUrl: '../img/bi_check2-circle (1).svg',
+      titleSize: 16,
+      messageLineHeight: 24,
     });
   },
 };
